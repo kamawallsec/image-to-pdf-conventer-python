@@ -65,12 +65,13 @@ class ImageToPdfConverter:
             x_centered = (612 - new_width) / 2
             y_centered = (792 - new_height) / 2
 
-            pdf.setFillColor(255, 255, 255)
-            pdf.rect(0, 0, 612, 792, fill=True)
+            # pdf.setFillColor(255, 255, 255)
+            # pdf.rect(0, 0, 612, 792, fill=True)
             pdf.drawInlineImage(image, x_centered, y_centered, width=new_width, height=new_height)
             pdf.showPage()
 
         pdf.save()
+        self.output_pdf_name.set("")
 
 
 def main():
