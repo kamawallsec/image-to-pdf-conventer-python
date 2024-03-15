@@ -15,7 +15,7 @@ class ImageToPdfConverter:
         self.ui_initializer()
 
     def ui_initializer(self):
-        title = tk.Label(self.root, text="Image to PDF Converter", font=("Rale way", 20, "bold"))
+        title = tk.Label(self.root, text="Image to PDF Converter", font=("Rale way", 20, "bold"), fg="blue")
         title.pack(pady=10)
 
         select_images_button = tk.Button(self.root, text="Select Images", command=self.select_images,
