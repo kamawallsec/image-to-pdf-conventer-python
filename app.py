@@ -17,7 +17,7 @@ class ImageToPdfConverter:
         title.pack(pady=10)
 
         select_images_button = tk.Button(self.root, text="Select Images", command=self.select_images,
-                                         font=("Rale way", 8, "bold"))
+                                         font=("Rale way", 8, "normal"))
         select_images_button.pack(pady=(0, 10))
 
         self.select_images_listbox.pack(pady=(0, 10), fill=tk.BOTH, expand=True)
@@ -29,7 +29,7 @@ class ImageToPdfConverter:
         pdf_name_entry.pack()
 
         convert_to_pdf_button = tk.Button(self.root, text="Convert to PDF", command=self.convert_images_to_pdf,
-                                          font=("Rale way", 8, "bold"))
+                                          font=("Rale way", 8, "normal"))
         convert_to_pdf_button.pack(pady=(20, 40))
 
     def select_images(self):
