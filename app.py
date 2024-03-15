@@ -55,6 +55,23 @@ class ImageToPdfConverter:
 
         pdf = canvas.Canvas(output_pdf_path, pagesize=(612, 792))
 
+        for image_path in self.image_paths:
+            image = Image.open(image_path)
+            default_height = 720
+            default_width = 540
+            scale_ratio = min(default_width / image.width, default_height / image.height)
+            new_width = scale_ratio * image.width
+            new_height = scale_ratio * image.height
+            x_centered = (612 - new_width) / 2
+            y_centered = (792 - new_height) / 2
+
+            pdf.setFillColor(255, 255, 255)
+            pdf.rect(0, 0, 612, 792, fill=True)
+            pdf.drawInlineImage(image, x_centered, y_centered, width=new_width, height=new_height)
+            pdf.showPage()
+
+        pdf.save()
+
 
 def main():
     root = tk.Tk()
