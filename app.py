@@ -13,14 +13,37 @@ class ImageToPdfConverter:
         self.ui_initializer()
 
     def ui_initializer(self):
-        title = tk.Label(self.root, text="Image to Pdf Converter", font=("Rale way", 20, "bold"))
+        title = tk.Label(self.root, text="Image to PDF Converter", font=("Rale way", 20, "bold"))
         title.pack(pady=10)
+
+        select_images_button = tk.Button(self.root, text="Select Images", command=self.select_images,
+                                         font=("Rale way", 8, "bold"))
+        select_images_button.pack(pady=(0, 10))
+
+        self.select_images_listbox.pack(pady=(0, 10), fill=tk.BOTH, expand=True)
+
+        label = tk.Label(self.root, text="Enter PDF file name: ")
+        label.pack()
+
+        pdf_name_entry = tk.Entry(self.root, textvariable=self.output_pdf_name, width=60, justify="center")
+        pdf_name_entry.pack()
+
+        convert_to_pdf_button = tk.Button(self.root, text="Convert to PDF", command=self.convert_images_to_pdf,
+                                          font=("Rale way", 8, "bold"))
+        convert_to_pdf_button.pack(pady=(20, 40))
+
+    def select_images(self):
+        pass
+
+    def convert_images_to_pdf(self):
+        pass
 
 
 def main():
     root = tk.Tk()
     root.title("Image to Pdf")
-    root.geometry("800x1000")
+    converter = ImageToPdfConverter(root)
+    root.geometry("800x600")
     root.mainloop()
 
 
