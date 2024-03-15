@@ -1,6 +1,6 @@
 import os
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 from reportlab.pdfgen import canvas
 from PIL import Image
 
@@ -52,6 +52,13 @@ class ImageToPdfConverter:
             return
 
         output_pdf_path = self.output_pdf_name.get() + ".pdf" if self.output_pdf_name.get() else "output.pdf"
+
+        # Check if the file exists
+
+        if os.path.exists(output_pdf_path):
+            overwrite = messagebox.askyesno("Warning", "File already exists. Do you want to overwrite it?")
+            if not overwrite:
+                return
 
         pdf = canvas.Canvas(output_pdf_path, pagesize=(612, 792))
 
